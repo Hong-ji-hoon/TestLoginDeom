@@ -1,0 +1,55 @@
+name: WinForms .NET Framework CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Restore NuGet packages
+        run: nuget restore LoginDemo.sln
+
+      - name: Build solution
+        run: msbuild LoginDemo.sln /p:Configuration=Release /p:Platform="Any CPU" /m
+
+      - name: Find VSTest
+        shell: pwsh
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          $vstest = & $vswhere -latest -products * -requires Microsoft.VisualStudio.PackageGroup.TestTools.Core -find **\vstest.console.exe | Select-Object -First 1
+
+          if (-not $vstest) {
+            throw "vstest.console.exe not found"
+          }
+
+          "VSTEST=$vstest" >> $env:GITHUB_ENV
+          Write-Host "VSTest found at $vstest"
+
+      - name: Run tests
+        shell: pwsh
+        run: |
+          $testDlls = Get-ChildItem -Recurse -Path . -Include "*Tests.dll","*Test.dll" |
+            Where-Object {
+              $_.FullName -like "*\bin\Release\*" -and
+              $_.FullName -notlike "*\obj\*"
+            }
+
+          if (-not $testDlls) {
+            throw "No test DLLs found. Check test project name and build output path."
+          }
+
+          & "$env:VSTEST" $testDlls.FullName
