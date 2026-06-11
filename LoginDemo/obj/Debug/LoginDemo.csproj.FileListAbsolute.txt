@@ -1,0 +1,10 @@
+C:\Users\fizz0\Desktop\LoginTestDemo\LoginDemo\bin\Debug\LoginDemo.exe.config
+C:\Users\fizz0\Desktop\LoginTestDemo\LoginDemo\bin\Debug\LoginDemo.exe
+C:\Users\fizz0\Desktop\LoginTestDemo\LoginDemo\bin\Debug\LoginDemo.pdb
+C:\Users\fizz0\Desktop\LoginTestDemo\LoginDemo\obj\Debug\LoginDemo.csproj.AssemblyReference.cache
+C:\Users\fizz0\Desktop\LoginTestDemo\LoginDemo\obj\Debug\LoginDemo.Form1.resources
+C:\Users\fizz0\Desktop\LoginTestDemo\LoginDemo\obj\Debug\LoginDemo.Properties.Resources.resources
+C:\Users\fizz0\Desktop\LoginTestDemo\LoginDemo\obj\Debug\LoginDemo.csproj.GenerateResource.cache
+C:\Users\fizz0\Desktop\LoginTestDemo\LoginDemo\obj\Debug\LoginDemo.csproj.CoreCompileInputs.cache
+C:\Users\fizz0\Desktop\LoginTestDemo\LoginDemo\obj\Debug\LoginDemo.exe
+C:\Users\fizz0\Desktop\LoginTestDemo\LoginDemo\obj\Debug\LoginDemo.pdb

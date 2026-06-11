@@ -1,0 +1,100 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\fizz0\\Desktop\\LoginTestDemo\\LoginDemo.Test\\LoginDemo.Test.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\fizz0\\Desktop\\LoginTestDemo\\LoginDemo.Test\\LoginDemo.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fizz0\\Desktop\\LoginTestDemo\\LoginDemo.Test\\LoginDemo.Test.csproj",
+        "projectName": "LoginDemo.Test",
+        "projectPath": "C:\\Users\\fizz0\\Desktop\\LoginTestDemo\\LoginDemo.Test\\LoginDemo.Test.csproj",
+        "packagesPath": "C:\\Users\\fizz0\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fizz0\\Desktop\\LoginTestDemo\\LoginDemo.Test\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fizz0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {
+              "C:\\Users\\fizz0\\Desktop\\LoginTestDemo\\LoginDemo\\LoginDemo.csproj": {
+                "projectPath": "C:\\Users\\fizz0\\Desktop\\LoginTestDemo\\LoginDemo\\LoginDemo.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "MSTest": {
+              "target": "Package",
+              "version": "[3.6.4, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.12.0, )"
+            },
+            "Microsoft.Testing.Extensions.CodeCoverage": {
+              "target": "Package",
+              "version": "[17.12.6, )"
+            },
+            "Microsoft.Testing.Extensions.TrxReport": {
+              "target": "Package",
+              "version": "[1.4.3, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\fizz0\\Desktop\\LoginTestDemo\\LoginDemo\\LoginDemo.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fizz0\\Desktop\\LoginTestDemo\\LoginDemo\\LoginDemo.csproj",
+        "projectName": "LoginDemo",
+        "projectPath": "C:\\Users\\fizz0\\Desktop\\LoginTestDemo\\LoginDemo\\LoginDemo.csproj",
+        "UsingMicrosoftNETSdk": false,
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}
