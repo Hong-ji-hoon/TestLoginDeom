@@ -17,6 +17,11 @@ jobs:
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v2
 
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
 
@@ -26,30 +31,5 @@ jobs:
       - name: Build solution
         run: msbuild LoginDemo.sln /p:Configuration=Release /p:Platform="Any CPU" /m
 
-      - name: Find VSTest
-        shell: pwsh
-        run: |
-          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
-
-          $vstest = & $vswhere -latest -products * -requires Microsoft.VisualStudio.PackageGroup.TestTools.Core -find **\vstest.console.exe | Select-Object -First 1
-
-          if (-not $vstest) {
-            throw "vstest.console.exe not found"
-          }
-
-          "VSTEST=$vstest" >> $env:GITHUB_ENV
-          Write-Host "VSTest found at $vstest"
-
       - name: Run tests
-        shell: pwsh
-        run: |
-          $testDll = ".\LoginDemo.Test\bin\Release\LoginDemo.Test.dll"
-
-          if (-not (Test-Path $testDll)) {
-            Write-Host "Test DLL not found at: $testDll"
-            Write-Host "All DLL files:"
-            Get-ChildItem -Recurse -Filter *.dll | ForEach-Object { Write-Host $_.FullName }
-            throw "Test DLL not found."
-          }
-
-          & "$env:VSTEST" $testDll
+        run: dotnet test .\LoginDemo.Test\LoginDemo.Test.csproj --configuration Release --no-restore --verbosity normal
