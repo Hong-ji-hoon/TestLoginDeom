@@ -30,6 +30,7 @@ jobs:
         shell: pwsh
         run: |
           $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+
           $vstest = & $vswhere -latest -products * -requires Microsoft.VisualStudio.PackageGroup.TestTools.Core -find **\vstest.console.exe | Select-Object -First 1
 
           if (-not $vstest) {
@@ -42,14 +43,13 @@ jobs:
       - name: Run tests
         shell: pwsh
         run: |
-          $testDlls = Get-ChildItem -Recurse -Path . -Include "*Tests.dll","*Test.dll" |
-            Where-Object {
-              $_.FullName -like "*\bin\Release\*" -and
-              $_.FullName -notlike "*\obj\*"
-            }
+          $testDll = ".\LoginDemo.Test\bin\Release\LoginDemo.Test.dll"
 
-          if (-not $testDlls) {
-            throw "No test DLLs found. Check test project name and build output path."
+          if (-not (Test-Path $testDll)) {
+            Write-Host "Test DLL not found at: $testDll"
+            Write-Host "All DLL files:"
+            Get-ChildItem -Recurse -Filter *.dll | ForEach-Object { Write-Host $_.FullName }
+            throw "Test DLL not found."
           }
 
-          & "$env:VSTEST" $testDlls.FullName
+          & "$env:VSTEST" $testDll
